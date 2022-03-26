@@ -6,10 +6,6 @@ const Index: NextPage = () => {
     <div>
       <Head>
         <title>Next.js 100 - TypeScript</title>
-        <meta
-          name="description"
-          content="Build a PWA to achieve 100% in Google Lighthouse and Next.js Analytics"
-        />
       </Head>
 
       <main>
