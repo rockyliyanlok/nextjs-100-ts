@@ -10,7 +10,6 @@ const Document = () => (
 
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-      <link rel="manifest" href="/manifest.json" />
       <link
         href="/favicon-16x16.png"
         rel="icon"
