@@ -5,7 +5,7 @@ const runtimeCaching = require('next-pwa/cache')
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self';
-  child-src 'self' nextjs-100-ts*.vercel.app;
+  child-src nextjs-100-ts*.vercel.app;
   style-src 'self';
   font-src 'self';  
 `
