@@ -2,27 +2,20 @@
 const withPWA = require('next-pwa')
 const runtimeCaching = require('next-pwa/cache')
 
-const headers = async () => {
-  return [
-    {
-      source: '/(.*)',
-      headers: [
-        {
-          key: 'X-Content-Type-Options',
-          value: 'nosniff',
-        },
-        {
-          key: 'X-Frame-Options',
-          value: 'SAMEORIGIN',
-        },
-        {
-          key: 'X-XSS-Protection',
-          value: '1; mode=block',
-        },
-      ],
-    },
-  ]
-}
+const securityHeaders = () => [
+  {
+    key: 'X-Content-Type-Options',
+    value: 'nosniff',
+  },
+  {
+    key: 'X-Frame-Options',
+    value: 'SAMEORIGIN',
+  },
+  {
+    key: 'X-XSS-Protection',
+    value: '1; mode=block',
+  },
+]
 
 const nextConfig = withPWA({
   reactStrictMode: true,
@@ -37,7 +30,14 @@ const nextConfig = withPWA({
     runtimeCaching,
     buildExcludes: [/middleware-manifest.json$/],
   },
-  headers,
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: securityHeaders(),
+      },
+    ]
+  },
 })
 
 module.exports = nextConfig
