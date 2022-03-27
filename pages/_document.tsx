@@ -7,6 +7,7 @@ const Document = () => (
         name="description"
         content="Build a PWA to achieve 100% in Google Lighthouse and Next.js Analytics"
       />
+      <meta name="theme-color" content="#000000" />
 
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
