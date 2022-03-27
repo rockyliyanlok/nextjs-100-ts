@@ -1,12 +1,10 @@
 import crypto, { Hash } from 'crypto'
 
-import { isProd } from '.'
-
 const hash = (inlineScriptSource: string): Hash =>
   crypto.createHash('sha256').update(inlineScriptSource)
 
 export const generateCsp = (inlineScriptSource: string): string =>
-  (isProd()
+  (process.env.NODE_ENV === 'production'
     ? [
         `default-src 'self'`,
         `script-src 'self' 'sha256-${hash(inlineScriptSource).digest(

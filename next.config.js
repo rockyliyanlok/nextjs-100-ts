@@ -34,7 +34,7 @@ const nextConfig = withPWA({
     localeDetection: false,
   },
   pwa: {
-    disable: !isProd(),
+    disable: process.env.NODE_ENV !== 'production',
     dest: 'public',
     runtimeCaching,
     buildExcludes: [/middleware-manifest.json$/],
