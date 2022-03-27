@@ -2,8 +2,6 @@
 const withPWA = require('next-pwa')
 const runtimeCaching = require('next-pwa/cache')
 
-const { isProd } = require('./utils')
-
 const headers = async () => {
   return [
     {
