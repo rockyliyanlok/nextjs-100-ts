@@ -6,6 +6,7 @@ const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self';
   child-src *.vercel.app;
+  connect-src 'self' vitals.vercel-insights.com;
   style-src 'self';
   font-src 'self';  
 `
