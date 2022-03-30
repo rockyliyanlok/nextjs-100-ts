@@ -26,7 +26,7 @@ const Document = () => (
       />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
 
-      <link rel="manifest" href="/manifest.json" />
+      <link rel="manifest" href="/site.webmanifest" />
     </Head>
     <body>
       <Main />
