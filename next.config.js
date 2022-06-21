@@ -2,11 +2,13 @@
 const withPWA = require('next-pwa')
 const runtimeCaching = require('next-pwa/cache')
 
+const isProd = () => process.env.NODE_ENV === 'production'
+
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self';
+  script-src 'self'${!isProd() ? ' \'unsafe-eval\'' : ''};
   connect-src 'self' vitals.vercel-insights.com;
-  style-src 'self';
+  style-src 'self' 'unsafe-inline';
   font-src 'self';  
 `
 
@@ -37,7 +39,7 @@ const nextConfig = withPWA({
     localeDetection: false,
   },
   pwa: {
-    disable: process.env.NODE_ENV !== 'production',
+    disable: !isProd(),
     dest: 'public',
     runtimeCaching,
     buildExcludes: [/middleware-manifest.json$/],
